@@ -1,5 +1,8 @@
+import mysql
+
 from database.museo_DAO import MuseoDAO
 from database.artefatto_DAO import ArtefattoDAO
+
 
 '''
     MODELLO: 
@@ -18,12 +21,30 @@ class Model:
         """Restituisce la lista di tutti gli artefatti filtrati per museo e/o epoca (filtri opzionali)."""
         # TODO
 
+        artefatti = self._artefatto_dao.cerca_artefatti(museo, epoca)
+
+        return artefatti
+
     def get_epoche(self):
         """Restituisce la lista di tutte le epoche."""
         # TODO
+
+        epoche = self._artefatto_dao.get_tutte_epoche()
+
+        return epoche
 
     # --- MUSEI ---
     def get_musei(self):
         """ Restituisce la lista di tutti i musei."""
         # TODO
+
+        musei = self._museo_dao.get_tutti_musei()
+        return musei
+
+
+
+
+
+
+
 
